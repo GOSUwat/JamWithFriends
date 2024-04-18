@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraCullingMask : MonoBehaviour
@@ -10,22 +8,23 @@ public class CameraCullingMask : MonoBehaviour
     private LayerMask _topCamerMask;
     [SerializeField]
     private LayerMask _sideCamerMask;
-    
+
     private void SwitchCameraMask()
     {
         if (CamerasBehavior.camOnTop)
         {
-            m_Camera.cullingMask = _topCamerMask;
+            m_Camera.cullingMask = _sideCamerMask;
         }
         else
         {
-            m_Camera.cullingMask = _sideCamerMask;
+            m_Camera.cullingMask = _topCamerMask;
         }
     }
 
     void Start()
     {
         m_Camera = Camera.main;
+        m_Camera.cullingMask = _sideCamerMask;
     }
 
     private void OnEnable()

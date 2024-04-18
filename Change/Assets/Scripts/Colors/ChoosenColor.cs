@@ -17,7 +17,7 @@ public class ChoosenColor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentColor = _images[0].GetComponent<UnityEngine.UI.Image>().color;
     }
 
     // Update is called once per frame

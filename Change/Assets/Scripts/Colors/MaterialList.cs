@@ -2,13 +2,7 @@ using UnityEngine;
 
 public class MaterialList : MonoBehaviour
 {
-    [SerializeField]
-    private Material[] _materials = new Material[5];
-
-    public static Material[] materials = new Material[5];
-
-    private void Start()
-    {
-        materials = _materials;
-    }
+    public static Color[] colors =
+        new Color[] { Color.red, Color.blue, Color.green,
+            new Color(1f,0f, 0.8823529f,1),new Color(1f, 0.5670936f,0,1) };
 }

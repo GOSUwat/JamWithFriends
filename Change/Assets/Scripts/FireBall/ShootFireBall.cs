@@ -11,8 +11,6 @@ public class ShootFireBall : MonoBehaviour
     [SerializeField]
     private float _fireballspeed = 3f;
 
-    private ParticleSystem _particleSystem;
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))

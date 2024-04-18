@@ -4,22 +4,40 @@ using UnityEngine;
 public class ColoringObject : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _colorManager;
+    private float minColorCount = 1;
+    [SerializeField]
+    private float maxColorCount = 9;    
 
-    private List<Material> _materials;
+    private List<Color> _objectColors = new List<Color>();
+    private List<Color> _saveOvjectColors;
 
     private void Start()
     {
-        
+        for(int i = 0; i <= Random.Range(minColorCount, maxColorCount); i++)
+        {
+            _objectColors.Add(MaterialList.colors[Random.Range(0,5)]);
+        }
+        _saveOvjectColors = _objectColors;
+        gameObject.GetComponent<Renderer>().material.SetColor("_Color", _objectColors[0]);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnHit(Color fireballColor)
     {
-        for (int i = 0; i <= Random.Range(1, 8); i++)
+        if(fireballColor != gameObject.GetComponent<Renderer>().material.color)
         {
-            print(MaterialList.materials[1]);
+            return;
         }
-        gameObject.GetComponent<Renderer>().material.SetColor("_Color", MaterialList.materials[0].color);
+
+        if(_objectColors.Count != 0)
+        {
+            _objectColors.RemoveAt(0);      
+        }
+        if(_objectColors.Count == 0)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+        gameObject.GetComponent<Renderer>().material.SetColor("_Color", _objectColors[0]);
+
     }
 }
