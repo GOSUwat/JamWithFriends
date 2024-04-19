@@ -14,7 +14,11 @@ public class PrintAmmo : MonoBehaviour
 
     void SetValue(int val)
     {
-        gui.text = $"AMMO : {val}";
+        if(gui != null)
+        {
+            gui.text = $"AMMO : {val}";
+        }
+        
     }
 
     private void OnEnable()

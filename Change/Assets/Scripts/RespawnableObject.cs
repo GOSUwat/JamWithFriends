@@ -16,20 +16,13 @@ public class RespawnableObject : MonoBehaviour
         obj.SetActive(true);
     }
 
-    private void Solo()
-    {
-        print("helloworld");
-    }
-
     private void OnEnable()
     {
-        hello += Solo;
         respawn += Respawn;
     }
 
     private void OnDisable()
     {
-        hello -= Solo;
         respawn -= Respawn;
     }
 
