@@ -11,14 +11,32 @@ public class ShootFireBall : MonoBehaviour
     [SerializeField]
     private float _fireballspeed = 3f;
 
-    void Update()
+    private Ammunition ammo;
+
+    private void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (ammo.CanShoot())
         {
-            print(ChoosenColor.currentColor);
+            ammo.ShootBullet();
             GameObject fireball = Instantiate(_fireball, _shootPosition);
             fireball.GetComponent<Rigidbody>().velocity = transform.forward * _fireballspeed;
         }
         
     }
+
+    private void Start()
+    {
+        ammo = GetComponent<Ammunition>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Shoot();
+        }
+        
+    }
+
+    
 }
