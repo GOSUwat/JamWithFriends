@@ -373,6 +373,7 @@
 "Assets/Scripts/FireBall/FIreballBehavior.cs"
 "Assets/Scripts/FireBall/ShootFireBall.cs"
 "Assets/Scripts/Player/Ammunition.cs"
+"Assets/Scripts/Player/Animation.cs"
 "Assets/Scripts/Player/Interact.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
 "Assets/Scripts/PrintAmmo.cs"
